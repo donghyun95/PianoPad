@@ -19,7 +19,7 @@ class PadContainer extends Component {
 
     componentDidMount() {
         this.AC = new AudioContext();
-        this.Sound = soundfont.instrument(this.AC, 'acoustic_grand_piano');
+        this.Sound = soundfont.instrument(this.AC, 'acoustic_grand_piano',{gain: 1});
     }
 
     handleStart() {

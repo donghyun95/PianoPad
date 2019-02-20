@@ -2,8 +2,8 @@ import Actions from '../Actions/Actions';
 
 const InitialState = {
     curCount: -1,
-    PadState: [{CHORD:'Cb1',status:[true,false,false,false,false,true,false,false,true,true,false,true,false,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]},
-               {CHORD:'Eb4',status:[true,false,false,true,false,false,false,false,true,true,false,true,false,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]}
+    PadState: [{CHORD:'C#4',status:[true,false,false,false,false,true,false,false,true,true,false,true,false,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]},
+               {CHORD:'B3',status:[true,false,false,true,false,false,false,false,true,true,false,true,false,true,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]}
               ]
 }
 

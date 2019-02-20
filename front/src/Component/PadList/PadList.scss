@@ -1,14 +1,4 @@
-.CurOrder {
-    background-color: #868e96;
-}
 
-.defaultColor {
-    background-color: #fff5f5;
-}
-
-.selectColor {
-    background-color: #eebefa;
-}
 
 .PadParent {
     display: flex; 
@@ -18,5 +8,57 @@
         width: 30px;
         height: 30px;
         border: 1px solid black;
+        border-radius: 3px;
+        
     }
+}
+.CurOrder {
+    background-color: #868e96;
+}
+
+.defaultColor {
+    background-color: #fff5f5;
+}
+
+.selectColor {
+    
+    background-color: #eebefa;
+}
+
+.selected {
+    background-color: #868e96;
+}
+
+.trans {
+    transition: all .5s;
+    transform: rotate(45deg) scale(1.5,1.5);
+}
+
+
+.redColor {
+    background-color: #f44336;
+}
+
+.orangeColor{
+    background-color: #fcc2d7;
+}
+
+.yellowColor{
+    background-color: #ffe066;
+}
+
+.greenColor {
+    background-color: #66bb6a;
+}
+
+.blueColor {
+    background-color: #42a5f5;
+}
+
+.indogoColor {
+    background-color: #91a7ff;
+}
+
+.purpleColor {
+    background-color: #e599f7;
 }

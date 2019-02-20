@@ -1,8 +1,7 @@
 import React from 'react';
 import './PadList.scss';
+import color from '../../Color';
 const PadList = (props) => {
-    
-    
     function handleMouseMove(statusIndex,PadStatus) {
         return function (ev) {
             if(window.ISMOUSEDOWN) {
@@ -14,7 +13,6 @@ const PadList = (props) => {
     function handleMouseDown(statusIndex,PadStatus) {
         return function (ev) {
             window.ISMOUSEDOWN = true;
-            console.log("MouseDown");
             props.ReverseStatus(props.PadIndex,statusIndex, PadStatus);
         }
     }
@@ -27,18 +25,17 @@ const PadList = (props) => {
     function preventDrag(ev) {
         ev.preventDefault();
     }
-
-
+    const padColor = props.CHORD.charCodeAt(0) % 65;
+    
     const CurPad = props.PadData.map((item,index)=>{
-        if(index === props.curCount) {
-            return <li key="Cur" className="CurOrder" onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
-        } else {
+        let selected = index === props.curCount ? 'selected' : '';
+        let itemSelected = index === props.curCount ? 'trans' : '';
+        
             if(item){
-                return <li key={index} className="selectColor" onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
+                return <li key={index} className={`${color[padColor]} ${itemSelected}`} onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
             } else {
-                return <li key={index} className="defaultColor" onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
+                return <li key={index} className={`defaultColor ${selected}`} onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
             }
-        }
     });
     return (
         <ul className="PadParent">

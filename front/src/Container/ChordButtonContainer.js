@@ -8,7 +8,7 @@ class ChordButtonContainer extends Component {
         this.ChordList = [];
         for(let i = 0; i <7; i++) {
             this.ChordList[i] = [];
-            for(let j = 0; j < 7; j++) { //0부터 6까지
+            for(let j = 0; j < 7; j++) {
                 const flatChord = `${String.fromCharCode(65+i)}b${j+1}`;
                 const Chord = `${String.fromCharCode(65+i)}${j+1}`;
                 const sharpChord = `${String.fromCharCode(65+i)}#${j+1}`;
@@ -21,14 +21,28 @@ class ChordButtonContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Chordflex">
+                <div className="ChordContainer">
                 {this.ChordList[0]}
+                </div>
+                <div className="ChordContainer">
                 {this.ChordList[1]}
+                </div>
+                <div className="ChordContainer">
                 {this.ChordList[2]}
+                </div>
+                <div className="ChordContainer"> 
                 {this.ChordList[3]}
+                </div>
+                <div className="ChordContainer">
                 {this.ChordList[4]}
+                </div>
+                <div className="ChordContainer">
                 {this.ChordList[5]}
+                </div>
+                <div className="ChordContainer">
                 {this.ChordList[6]}
+                </div>
             </div>
         );
     }
