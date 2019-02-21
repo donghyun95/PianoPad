@@ -1,6 +1,8 @@
 import React from 'react';
 import './PadList.scss';
 import color from '../../Color';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 const PadList = (props) => {
     function handleMouseMove(statusIndex,PadStatus) {
         return function (ev) {
@@ -25,12 +27,16 @@ const PadList = (props) => {
     function preventDrag(ev) {
         ev.preventDefault();
     }
+
+    function PadRemove(ev) {
+        props.RemoveLine(props.PadIndex);
+    }
+
     const padColor = props.CHORD.charCodeAt(0) % 65;
     
     const CurPad = props.PadData.map((item,index)=>{
         let selected = index === props.curCount ? 'selected' : '';
         let itemSelected = index === props.curCount ? 'trans' : '';
-        
             if(item){
                 return <li key={index} className={`${color[padColor]} ${itemSelected}`} onDragStart={preventDrag} onMouseEnter={handleMouseMove(index,item)} onMouseDown={handleMouseDown(index,item)} onMouseUp={handleMouseUp}></li>;
             } else {
@@ -38,9 +44,15 @@ const PadList = (props) => {
             }
     });
     return (
-        <ul className="PadParent">
-            {CurPad}
-        </ul>
+        <div>
+            <div className="PadList_ChordName">{props.CHORD}</div>
+            <ul className="PadParent">
+                {CurPad}
+            </ul>
+            <div className="PadList_RemoveBtn" onClick={PadRemove}>
+                <FontAwesomeIcon icon={faTimes}/>
+            </div>
+        </div>
     );
 };
 

@@ -51,13 +51,22 @@ class PadContainer extends Component {
     render() {
         const {curCount, PadState} = this.props;
         const hasPadList = PadState.map((item,index)=> <PadList Makenumber={31} curCount={curCount} CHORD={item.CHORD} PadData={item.status} key={index} PadIndex={index} 
-        ReverseStatus={this.props.ReverseStatus}></PadList>)
+        ReverseStatus={this.props.ReverseStatus} RemoveLine={this.props.RemoveLine}></PadList>)
         return (
-            <div>
+            <div className="PadContainer">
+                <div>
+                    <div className="PadContainer_Settings">
+                        <button>Setting 1</button>
+                        <button>Setting 2</button>
+                        <button>Setting 3</button>
+                    </div>
+                    <div className="PadContainer_operationBtn">
+                        <button onClick={this.handleStart}>Start</button>
+                        <button onClick={this.handlePause}>Pause</button>
+                        <button onClick={this.handleStop}>Stop</button>
+                    </div>
+                </div>
                 {hasPadList}
-                <button onClick={this.handleStart}>Start</button>
-                <button onClick={this.handlePause}>Pause</button>
-                <button onClick={this.handleStop}>Stop</button>
             </div>        
         );
     }
@@ -71,6 +80,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     IncreaseCount : () => dispatch(Actions.increasecount()),
     InitializeCount : () => dispatch(Actions.initializecount()),
-    ReverseStatus : (PadIndex, statusIndex,PadStatus) => dispatch(Actions.reversestatus(PadIndex,statusIndex,PadStatus))
+    ReverseStatus : (PadIndex, statusIndex,PadStatus) => dispatch(Actions.reversestatus(PadIndex,statusIndex,PadStatus)),
+    RemoveLine: (PadIndex) => dispatch(Actions.removeline(PadIndex))
 });
 export default connect(mapStateToProps,mapDispatchToProps)(PadContainer);

@@ -33,6 +33,10 @@ export default function (state = InitialState, action) {
             return Object.assign({}, state, {
                 PadState: [...state.PadState.slice(),newline]
             });
+        case Actions.REMOVELINE :
+            return Object.assign({}, state, {
+                PadState: [...state.PadState.slice(0,action.PadIndex),...state.PadState.slice(action.PadIndex+1)]
+            });
         default : return state;
     }
 }
